@@ -1,8 +1,6 @@
 package com.example.partie2exo2calculermoyenne;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
@@ -15,25 +13,24 @@ public class HelloApplication extends Application {
     /**
      * Saisie des paramètres du tableau : taille, min, max, affichage du tableau généré aléatoirement, affichage du max trouvé dans ce tableau
      * @param stage je ne sais pas
-     * @throws IOException je ne sais pas
      */
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         int taille = saisirEntier("Veuillez saisir la taille du tableau", "Taille");
-        int min = saisirEntier("Veuillez saisir le nombre minimum", "min");
-        int max = saisirEntier("Veuillez saisir le nombre maximum", "max");
+        int min = saisirEntier("Veuillez saisir le nombre minimum \uD83D\uDDB6", "min");
+        int max = saisirEntier("Veuillez saisir le nombre maximum \uD83D\uDE3C", "max");
 
-        int [] TabEntiers = randomTab(taille,min,max);
+        int [] tabEntiers = randomTab(taille,min,max);
 
         // Afficher les nombres du tableau
         StringBuilder nombres = new StringBuilder();
         for (int i = 0; i < taille; i++) {
-            nombres.append(TabEntiers[i]).append(" | ");
+            nombres.append(tabEntiers[i]).append(" | ");
         }
         afficherBoiteDeDialogue(nombres.toString(), "Tableau");
 
         // afficher la moyenne des nombres du tableau
-        double moy = calculerMoyenne(TabEntiers);
+        double moy = calculerMoyenne(tabEntiers);
         afficherBoiteDeDialogue("La moyenne est "+ moy,"Moyenne");
 
     }
